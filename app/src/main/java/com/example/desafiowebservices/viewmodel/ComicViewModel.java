@@ -9,6 +9,8 @@ import com.example.desafiowebservices.utils.AppUtils;
 
 import io.reactivex.disposables.CompositeDisposable;
 
+import static com.example.desafiowebservices.utils.AppUtils.md5;
+
 public class ComicViewModel extends AndroidViewModel{
 
     private CompositeDisposable disposable = new CompositeDisposable();
@@ -18,7 +20,7 @@ public class ComicViewModel extends AndroidViewModel{
 
     Long tsLong = System.currentTimeMillis()/1000;
     String ts = tsLong.toString();
-    String hash = md5​(ts + ​PRIVATE_KEY ​+PUBLIC_KEY​);
+    String hash = md5(ts+PRIVATE_KEY+PUBLIC_KEY);
 
     public ComicViewModel(@NonNull Application application) {
         super(application);
