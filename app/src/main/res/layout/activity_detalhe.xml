@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#002336"
     tools:context=".view.activity.DetalheActivity">
 
     <TextView
@@ -12,6 +13,7 @@
         android:layout_height="343dp"
         android:layout_marginBottom="12dp"
         android:text="TextView"
+        android:textColor="#FFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -22,6 +24,7 @@
         android:layout_height="250dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/comicdefault" />
@@ -29,6 +32,7 @@
     <TextView
         android:id="@+id/detalhenomegibi"
         android:layout_width="394dp"
+        android:textColor="#FFF"
         android:layout_height="57dp"
         android:text="TextView"
         android:gravity="center"
@@ -36,6 +40,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detalhecapagibi" />
+
+    <ImageView
+        android:id="@+id/detalheminicapa"
+        android:layout_width="149dp"
+        android:layout_height="213dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/comicdefault" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

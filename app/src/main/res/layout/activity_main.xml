@@ -8,8 +8,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
-        android:layout_width="409dp"
-        android:layout_height="689dp"
+        android:layout_width="match_parent"
+        android:layout_height="693dp"
         android:background="#002336"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,7 +23,7 @@
         android:background="#ED1D24"
         android:textColor="#FFF"
         android:fontFamily="@font/marvel"
-        android:text="COMICS"
+        android:text="MARVEL"
         android:textSize="90dp"
 
         app:layout_constraintEnd_toEndOf="parent"

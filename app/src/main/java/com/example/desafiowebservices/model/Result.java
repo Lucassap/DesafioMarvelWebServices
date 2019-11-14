@@ -70,6 +70,7 @@ public class Result implements Parcelable{
     @Expose
     private List<Object> variants;
 
+
     protected Result(Parcel in) {
         description = in.readString();
         diamondCode = in.readString();
@@ -99,6 +100,7 @@ public class Result implements Parcelable{
             pageCount = in.readLong();
         }
         resourceURI = in.readString();
+        thumbnail = in.readParcelable(Thumbnail.class.getClassLoader());
         title = in.readString();
         upc = in.readString();
         variantDescription = in.readString();
@@ -348,6 +350,7 @@ public class Result implements Parcelable{
         this.variants = variants;
     }
 
+
     @Override
     public int describeContents() {
         return 0;
@@ -387,6 +390,7 @@ public class Result implements Parcelable{
             parcel.writeLong(pageCount);
         }
         parcel.writeString(resourceURI);
+        parcel.writeParcelable(thumbnail, i);
         parcel.writeString(title);
         parcel.writeString(upc);
         parcel.writeString(variantDescription);

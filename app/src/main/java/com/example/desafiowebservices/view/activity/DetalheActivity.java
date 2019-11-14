@@ -17,6 +17,7 @@ public class DetalheActivity extends AppCompatActivity {
     TextView descricão;
     ImageView capagibi;
     TextView nomegibi;
+    ImageView minicapa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,14 +27,20 @@ public class DetalheActivity extends AppCompatActivity {
         descricão = findViewById(R.id.detalhedescricao);
         capagibi = findViewById(R.id.detalhecapagibi);
         nomegibi = findViewById(R.id.detalhenomegibi);
+        minicapa = findViewById(R.id.detalheminicapa);
 
         if(getIntent().getExtras() != null ){
             Result comic = getIntent().getExtras().getParcelable(COMIC_KEY);
-            //Picasso.get().load(comic.getThumbnail().getPath() + ".jpg")
-             //       .error(R.drawable.comicdefault)
-             //       .into(capagibi);
+            Picasso.get().load(comic.getThumbnail().getPath() + ".jpg")
+                    .error(R.drawable.comicdefault)
+                    .into(capagibi);
+
+            Picasso.get().load(comic.getThumbnail().getPath() + ".jpg")
+                    .error(R.drawable.comicdefault)
+                    .into(minicapa);
             nomegibi.setText(comic.getTitle());
             descricão.setText(comic.getDescription());
+
         }
 
         getSupportActionBar().hide();
