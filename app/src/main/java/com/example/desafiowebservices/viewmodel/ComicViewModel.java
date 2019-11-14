@@ -2,6 +2,7 @@ package com.example.desafiowebservices.viewmodel;
 
 import android.app.Application;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -21,8 +22,8 @@ import io.reactivex.schedulers.Schedulers;
 import static com.example.desafiowebservices.utils.AppUtils.md5;
 
 public class ComicViewModel extends AndroidViewModel{
-    private MutableLiveData<List<Result>> listMutableLiveData;
-    private RepositoryMarvel repositoryMarvel;
+    private MutableLiveData<List<Result>> listMutableLiveData = new MutableLiveData<>();
+    private RepositoryMarvel repositoryMarvel = new RepositoryMarvel();
     private CompositeDisposable disposable = new CompositeDisposable();
     public static final String PUBLIC_KEY = "6eb7e8896ec5850c52515a8a23ee97f0";
     public static final String PRIVATE_KEY = "0dd0c16fedb8a02985977eafca66b49f5e6a526f";
@@ -43,7 +44,7 @@ public class ComicViewModel extends AndroidViewModel{
     public void getComics() {
 
         disposable.add(
-                repositoryMarvel.getAllComicsRepository("magazine", "comic", true, "focDate", ts, hash, PUBLIC_KEY)
+                repositoryMarvel.getAllComicsRepository("magazine", "comic", true, "title", ts, hash, PUBLIC_KEY)
 
                         .subscribeOn(Schedulers.newThread())
 
@@ -52,7 +53,9 @@ public class ComicViewModel extends AndroidViewModel{
                         .subscribe(response -> {
                             listMutableLiveData.setValue(response.getData().getResults());
                         }, throwable -> {
+                            Toast.makeText(getApplication(), "Caiu na merda", Toast.LENGTH_SHORT).show();
                             Log.i("LOG", "Error: " + throwable.getMessage());
+
                         }));
     }
 

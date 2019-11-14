@@ -10,16 +10,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.desafiowebservices.R;
+import com.example.desafiowebservices.model.Result;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 public class AdapterClick extends RecyclerView.Adapter<AdapterClick.ViewHolder> {
 
-    private List<com.example.desafiowebservices.model.Result> listagibi;
+    private List<Result> listagibi;
     private OnClickGibi onClickGibi;
 
-    public AdapterClick (List<com.example.desafiowebservices.model.Result> listagibi, OnClickGibi onClickGibi){
+    public AdapterClick (List<Result> listagibi, OnClickGibi onClickGibi){
         this.listagibi = listagibi;
         this.onClickGibi = onClickGibi;
     }
@@ -36,12 +37,7 @@ public class AdapterClick extends RecyclerView.Adapter<AdapterClick.ViewHolder> 
         com.example.desafiowebservices.model.Result comic = this.listagibi.get(position);
         holder.bind(comic);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                onClickGibi.onClickGibi(comic);
-            }
-        });
+        holder.itemView.setOnClickListener(view -> onClickGibi.onClickGibi(comic));
     }
 
     @Override
@@ -49,7 +45,7 @@ public class AdapterClick extends RecyclerView.Adapter<AdapterClick.ViewHolder> 
         return listagibi.size();
     }
 
-    public void setUpdate(List<com.example.desafiowebservices.model.Result> listagibi) {
+    public void setUpdate(List<Result> listagibi) {
         if (this.listagibi.isEmpty()){
             this.listagibi = listagibi;
         }else {
@@ -77,7 +73,7 @@ public class AdapterClick extends RecyclerView.Adapter<AdapterClick.ViewHolder> 
 
         }
 
-        public void bind(com.example.desafiowebservices.model.Result comic){
+        public void bind(Result comic){
             TVnomegibi.setText(comic.getTitle());
             Picasso.get().load(comic.getThumbnail().getPath() + ".jpg").into(IVcapagibi);
         }

@@ -7,7 +7,7 @@
     tools:context=".view.activity.DetalheActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/detalhedescricao"
         android:layout_width="397dp"
         android:layout_height="343dp"
         android:layout_marginBottom="12dp"
@@ -17,25 +17,25 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="416dp"
-        android:layout_height="340dp"
-        android:scaleType="fitXY"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/marvel_logo" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="135dp"
-        android:layout_height="195dp"
-        android:layout_marginTop="180dp"
-        android:scaleType="fitXY"
+        android:id="@+id/detalhecapagibi"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/comicdefault" />
+
+    <TextView
+        android:id="@+id/detalhenomegibi"
+        android:layout_width="394dp"
+        android:layout_height="57dp"
+        android:text="TextView"
+        android:gravity="center"
+        app:layout_constraintBottom_toTopOf="@+id/detalhedescricao"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detalhecapagibi" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

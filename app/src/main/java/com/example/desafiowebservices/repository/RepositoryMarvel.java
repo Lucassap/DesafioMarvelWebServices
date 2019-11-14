@@ -17,10 +17,7 @@ public class RepositoryMarvel {
         String ts,
         String hash,
         String apikey
-
-
-
-        ) {
+    ) {
         return getApiService().getComics(format,formatType,noVariants,orderBy,ts,hash, apikey);
     }
 }

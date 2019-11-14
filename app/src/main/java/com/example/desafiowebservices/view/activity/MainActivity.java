@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity  implements OnClickGibi {
     private String nomegibi;
     private AdapterClick adapterClick;
     private ComicViewModel comicViewModel;
+    public static String COMIC_KEY = "comic";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +34,19 @@ public class MainActivity extends AppCompatActivity  implements OnClickGibi {
 
         initViews();
 
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
+
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
         recyclerView.setAdapter(adapterClick);
+
+        comicViewModel.getComics();
+
+        comicViewModel.getComicsLista().observe(this, results -> {
+            adapterClick.setUpdate(results);
+        });
+
+
+
     }
-
-    
-
 
     private void initViews() {
 
@@ -51,7 +59,9 @@ public class MainActivity extends AppCompatActivity  implements OnClickGibi {
     @Override
     public void onClickGibi(Result result) {
         Intent intent = new Intent(MainActivity.this, DetalheActivity.class);
-        intent.putExtra("result", result);
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(COMIC_KEY, result);
+        intent.putExtras(bundle);
         startActivity(intent);
     }
 
