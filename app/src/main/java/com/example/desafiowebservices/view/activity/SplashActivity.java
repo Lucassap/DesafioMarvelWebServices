@@ -25,6 +25,8 @@ public class SplashActivity extends AppCompatActivity {
                 jump();
             }
         },3000);
+
+        getSupportActionBar().hide();
     }
 
     private void jump(){

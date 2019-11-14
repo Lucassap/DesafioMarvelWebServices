@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity  implements OnClickGibi {
         initViews();
 
 
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 3));
         recyclerView.setAdapter(adapterClick);
 
         comicViewModel.getComics();
@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity  implements OnClickGibi {
             adapterClick.setUpdate(results);
         });
 
-
+        getSupportActionBar().hide();
 
     }
 

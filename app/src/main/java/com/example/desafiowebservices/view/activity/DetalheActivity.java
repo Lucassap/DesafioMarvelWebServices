@@ -29,12 +29,14 @@ public class DetalheActivity extends AppCompatActivity {
 
         if(getIntent().getExtras() != null ){
             Result comic = getIntent().getExtras().getParcelable(COMIC_KEY);
-            Picasso.get().load(comic.getThumbnail().getPath() + ".jpg")
-                    .error(R.drawable.comicdefault)
-                    .into(capagibi);
+            //Picasso.get().load(comic.getThumbnail().getPath() + ".jpg")
+             //       .error(R.drawable.comicdefault)
+             //       .into(capagibi);
             nomegibi.setText(comic.getTitle());
             descricão.setText(comic.getDescription());
         }
+
+        getSupportActionBar().hide();
 
     }
 }
